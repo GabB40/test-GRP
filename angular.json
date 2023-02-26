@@ -3,5 +3,37 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "ng-simplemde-library": {
+      "projectType": "library",
+      "root": "projects/ng-simplemde-library",
+      "sourceRoot": "projects/ng-simplemde-library/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ng-simplemde-library/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-simplemde-library/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ng-simplemde-library/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-simplemde-library/src/test.ts",
+            "tsConfig": "projects/ng-simplemde-library/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-simplemde-library/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ng-simplemde-library"
 }
